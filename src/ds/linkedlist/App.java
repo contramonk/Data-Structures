@@ -29,9 +29,6 @@ public class App {
 		myLinkedList.removeFirst();
 		myLinkedList.removeFirst();
 		myLinkedList.removeFirst();
-		myLinkedList.removeFirst();
-		myLinkedList.removeFirst();
-		myLinkedList.removeFirst();
 		myLinkedList.addLast(4);
 		myLinkedList.addLast(5);
 		System.out.println(myLinkedList);
@@ -48,6 +45,20 @@ public class App {
 		myLinkedList.removeFirst();
 		myLinkedList.removeLast();
 		myLinkedList.addLast(22);
+		myLinkedList.addFirst(55);
+		myLinkedList.addFirst(67);
+		myLinkedList.addFirst(99);
+		System.out.println(myLinkedList);
+		
+		System.out.println("************Test insertAfter***************");
+		myLinkedList.insertAfter(55, 9);
+		System.out.println(myLinkedList);
+		
+		System.out.println("************Test insertAfter***************");
+		myLinkedList.insertBefore(22, 10);
+		myLinkedList.insertBefore(99, 98);
+		myLinkedList.insertBefore(9, 8);
+		
 		
 		System.out.println(myLinkedList);
 	}
