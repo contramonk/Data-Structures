@@ -33,6 +33,29 @@ public class BinarySearchTree {
 		}
 	}
 
+	public boolean find(int data) {
+		if (root == null) {
+			return false;
+		}
+		Node current = root;
+		while (!(current.left == null && current.right == null)) {
+			if (current.data == data)
+				return true;
+
+			if (data < current.data) {
+				if (current.left == null) break;
+				current = current.left;
+			} else if (data > current.data) {
+				if (current.right == null) break;
+				current = current.right;
+			}
+		}
+		if (current.data == data)
+			return true;
+
+		return false;
+	}
+
 	public void display(Node root) {
 		if (root != null) {
 			display(root.left);
