@@ -13,6 +13,9 @@ public class App {
 		bst.insert(3);
 		bst.insert(4);
 		bst.insert(9);
+		bst.insert(7);
+		bst.insert(20);
+		bst.insert(-5);
 		bst.display(bst.root);
 		System.out.println();
 		
@@ -26,6 +29,11 @@ public class App {
 		System.out.println(bst.find(0));
 		System.out.println(bst.find(11));
 		System.out.println(bst.find(99));
+		bst.remove(6);
+		bst.display(bst.root);
+		System.out.println();
+		bst.remove(9);
+		bst.display(bst.root);
 		
 	}
 }
