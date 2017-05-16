@@ -34,6 +34,14 @@ public class App {
 		System.out.println();
 		bst.remove(10);
 		bst.display(bst.root);
+		System.out.println();
+		System.out.println(bst.root.data);
+		
+		BinarySearchTree newTree = new BinarySearchTree();
+		newTree.insert(6);
+//		newTree.display(newTree.root);
+		newTree.remove(6);
+		newTree.display(newTree.root);
 		
 	}
 }

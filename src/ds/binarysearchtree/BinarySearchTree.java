@@ -32,7 +32,7 @@ public class BinarySearchTree {
 			}
 		}
 	}
-	
+
 	public void insert(Node node) {
 		if (root == null) {
 			root = node;
@@ -63,13 +63,11 @@ public class BinarySearchTree {
 	}
 
 	public boolean find(int data) {
-		if (root == null) {
-			return false;
-		}
+		if (root == null) return false;
+		
 		Node current = root;
 		while (!(current.left == null && current.right == null)) {
-			if (current.data == data)
-				return true;
+			if (current.data == data) return true;
 
 			if (data < current.data) {
 				if (current.left == null) break;
@@ -79,77 +77,60 @@ public class BinarySearchTree {
 				current = current.right;
 			}
 		}
-		if (current.data == data)
-			return true;
+		if (current.data == data) return true;
 
 		return false;
 	}
-	
+
 	public Node remove(int data) {
-		if(root == null) {
+		if (root == null) {
 			System.out.println("Binary Search Tree is empty");
 			return null;
 		}
+		
 		Node current = root;
 		Node smallNode = null;
 		Node previous = null;
 		Node value = null;
-		while(!(current.left == null && current.right == null)) {
-			if(current.data == data) {
-				if(previous == null) {
+		
+		while (!(current.left == null && current.right == null)) {
+			if (current.data == data) {
+				if (previous == null) {
 					root = current.right;
-					smallNode = current.left;
-					value = current;
-					break;
-				}
-				if(current.data <= previous.data) {
+				} else if (current.data <= previous.data) {
 					previous.left = current.right;
-					smallNode = current.left;
-					value = current;
-					break;
 				} else {
 					previous.right = current.right;
-					smallNode = current.left;
-					value = current;
-					break;
 				}
-				
+				smallNode = current.left;
+				value = current;
+				break;
 			}
-			if(data < current.data) {
-				if(current.left == null) break;
+			if (data < current.data) {
+				if (current.left == null) break;
 				previous = current;
 				current = current.left;
 			} else if (data > current.data) {
-				if(current.right == null) break;
+				if (current.right == null) break;
 				previous = current;
 				current = current.right;
 			}
 		}
-		
-		if(current.data == data) {
-			if(previous == null) {
+		if (current.data == data) {
+			if (previous == null) {
 				root = current.right;
-				smallNode = current.left;
-				value = current;
-			}
-			else if(current.data <= previous.data) {
+			} else if (current.data <= previous.data) {
 				previous.left = current.right;
-				smallNode = current.left;
-				value = current;
-				
 			} else {
 				previous.right = current.right;
-				smallNode = current.left;
-				value = current;
 			}
-			
+			smallNode = current.left;
+			value = current;
 		}
-		if(smallNode != null) {
+		if (smallNode != null) {
 			insert(smallNode);
 		}
-		
 		return value;
-		
 	}
 
 	public void display(Node root) {
