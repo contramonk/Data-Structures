@@ -96,6 +96,12 @@ public class BinarySearchTree {
 		Node value = null;
 		while(!(current.left == null && current.right == null)) {
 			if(current.data == data) {
+				if(previous == null) {
+					root = current.right;
+					smallNode = current.left;
+					value = current;
+					break;
+				}
 				if(current.data <= previous.data) {
 					previous.left = current.right;
 					smallNode = current.left;
@@ -119,8 +125,14 @@ public class BinarySearchTree {
 				current = current.right;
 			}
 		}
+		
 		if(current.data == data) {
-			if(current.data <= previous.data) {
+			if(previous == null) {
+				root = current.right;
+				smallNode = current.left;
+				value = current;
+			}
+			else if(current.data <= previous.data) {
 				previous.left = current.right;
 				smallNode = current.left;
 				value = current;

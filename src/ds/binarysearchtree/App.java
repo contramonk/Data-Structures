@@ -32,7 +32,7 @@ public class App {
 		bst.remove(6);
 		bst.display(bst.root);
 		System.out.println();
-		bst.remove(9);
+		bst.remove(10);
 		bst.display(bst.root);
 		
 	}
