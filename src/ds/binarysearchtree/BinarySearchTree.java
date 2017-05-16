@@ -2,7 +2,14 @@ package ds.binarysearchtree;
 
 public class BinarySearchTree {
 	Node root;
-
+	
+	/**
+	 * This method inserts an integer into the binary 
+	 * search tree
+	 * 
+	 * @param data an integer to insert
+	 * @return void
+	 */
 	public void insert(int data) {
 		Node newNode = new Node(data);
 		if (root == null) {
@@ -32,7 +39,13 @@ public class BinarySearchTree {
 			}
 		}
 	}
-
+	/**
+	 * This method will place a Node into the
+	 * binary search tree.
+	 * 
+	 * @param node a Node to place in the tree
+	 * @return void
+	 */
 	public void insert(Node node) {
 		if (root == null) {
 			root = node;
@@ -61,6 +74,14 @@ public class BinarySearchTree {
 			}
 		}
 	}
+	/**
+	 * This method will find a given integer in the
+	 * binary search tree.
+	 * 
+	 * @param data an integer
+	 * @return true if the integer belongs to the BST,
+	 * false if it does not.
+	 */
 
 	public boolean find(int data) {
 		if (root == null) return false;
@@ -81,7 +102,12 @@ public class BinarySearchTree {
 
 		return false;
 	}
-
+	/**
+	 * This method will remove a Node from the BST with
+	 * the given data.
+	 * @param data an integer to search for and remove
+	 * @return the Node that has been removed.
+	 */
 	public Node remove(int data) {
 		if (root == null) {
 			System.out.println("Binary Search Tree is empty");
@@ -132,7 +158,11 @@ public class BinarySearchTree {
 		}
 		return value;
 	}
-
+	/**
+	 * This method will display the binary search tree in
+	 * ascending order.
+	 * @param root the first Node of the subtree to display
+	 */
 	public void display(Node root) {
 		if (root != null) {
 			display(root.left);
