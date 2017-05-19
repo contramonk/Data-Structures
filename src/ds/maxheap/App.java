@@ -37,5 +37,15 @@ public class App {
 			System.out.println("FAIL");
 		}
 		
+		// Test getMax()
+		System.out.println("******Testing getMax******");
+		System.out.println("Expecting: 17");
+		System.out.println("Getting: " + heap.getMax());
+		if(heap.getMax() == 17) {
+			System.out.println("PASS");
+		} else {
+			System.out.println("FAIL");
+		}
+		
 	}
 }
