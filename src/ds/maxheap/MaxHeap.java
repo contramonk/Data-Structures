@@ -1,0 +1,49 @@
+package ds.maxheap;
+
+public class MaxHeap {
+	private int[] heap = new int[10];
+	private int endPoint = 0;
+	private int root;
+	
+	
+	public void insert(int data) {
+		if(heap.length - 1 == endPoint) {
+			int[] temp = heap;
+			heap = new int[(endPoint + 1) * 2];
+			for(int i = 0; i < temp.length; i++) {
+				heap[i] = temp[i];
+			}
+		}
+		heap[endPoint] = data;
+		if(endPoint == 0) {
+			root = heap[endPoint];
+		} else {
+			int index = endPoint;
+			while( index >= 0 && heap[(int)Math.floor((index - 1)/2)] < heap[index]) {
+				int temp = heap[(int)Math.floor((index - 1)/2)];
+				heap[(int)Math.floor((index - 1)/2)] = heap[index];
+				heap[index] = temp;
+				index = (int)Math.floor((index - 1)/2);
+			}
+			if(index == 0) {
+				root = heap[0];
+			}
+		}
+		
+		endPoint++;
+	}
+	
+	public int getRoot() {
+		return root;
+	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("[ ");
+		for(int i = 0; i < endPoint; i++) {
+			sb.append(heap[i] + " ");
+		}
+		sb.append("]");
+		return sb.toString();
+	}
+}
