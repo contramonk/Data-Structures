@@ -71,6 +71,10 @@ public class MaxHeap {
 		return root;
 	}
 	
+	public int getEndPoint() {
+		return endPoint;
+	}
+	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("[ ");

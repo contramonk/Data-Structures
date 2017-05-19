@@ -47,5 +47,23 @@ public class App {
 			System.out.println("FAIL");
 		}
 		
+		// Test Empty Heap
+		System.out.println("******Testing EmptyHeap Delete******");
+		MaxHeap emptyHeap = new MaxHeap();
+		if(emptyHeap.delete() == -1 && emptyHeap.toString().equals("[ ]")) {
+			System.out.println("PASS");
+		} else {
+			System.out.println("FAIL");
+		}
+		
+		// Testing One element Heap Delete
+		System.out.println("******Testing One Element Heap Delete******");
+		emptyHeap.insert(6);
+		emptyHeap.delete();
+		if(emptyHeap.getEndPoint() == 0 && emptyHeap.toString().equals("[ ]")) {
+			System.out.println("PASS");
+		} else {
+			System.out.println("FAIL");
+		}
 	}
 }
