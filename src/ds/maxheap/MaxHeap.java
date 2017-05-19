@@ -32,6 +32,36 @@ public class MaxHeap {
 		
 		endPoint++;
 	}
+	public int delete() {
+		if(endPoint == 0) {
+			System.out.println("Heap is Empty. Nothing to delete");
+			return -1;
+		}
+		if(endPoint == 1) {
+			endPoint = 0;
+			return heap[endPoint];
+		}
+		int removed = heap[0];
+		int index = 0;
+		endPoint--;
+		heap[index] = heap[endPoint];
+		while(index < endPoint) {
+			if(heap[2 * index + 1] > heap[2 * index + 2]) {
+				int temp = heap[index];
+				heap[index] = heap[2 * index + 1];
+				heap[2 * index + 1] = temp;
+				index = 2 * index + 1;
+			} else if(heap[2 * index + 1] < heap[2 * index + 2]) {
+				int temp = heap[index];
+				heap[index] = heap[2 * index + 2];
+				heap[2 * index + 2] = temp;
+				index = 2 * index + 2;
+			}
+		}
+		root = heap[0];
+		
+		return removed;
+	}
 	
 	public int getRoot() {
 		return root;
